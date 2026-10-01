@@ -1,754 +1,880 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Dr. Felipe Magno | Pós-operatório - Somente Mama</title>
-
-  <meta name="description"
-        content="Orçamento especial de medicamentos para pacientes do Dr. Felipe Magno - protocolo pós-operatório Somente Mama.">
-
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    :root {
-      --azul: #183b57;
-      --azul2: #245a7a;
-      --verde: #20a464;
-      --verde-escuro: #16824d;
-      --verde-claro: #eaf8f1;
-      --cinza: #687681;
-      --cinza-claro: #f4f6f7;
-      --borda: #e3e8eb;
-      --branco: #ffffff;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f5f7f8;
-      color: #26343d;
-      line-height: 1.45;
-    }
-
-    .container {
-      width: min(100% - 28px, 760px);
-      margin: 0 auto;
-    }
-
-    /* CABEÇALHO */
-
-    header {
-      background: var(--branco);
-      border-bottom: 1px solid var(--borda);
-    }
-
-    .header-inner {
-      padding: 22px 0 18px;
-      text-align: center;
-    }
-
-    .marca {
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 1.4px;
-      color: var(--cinza);
-      font-weight: bold;
-      margin-bottom: 8px;
-    }
-
-    h1 {
-      color: var(--azul);
-      font-size: 27px;
-      line-height: 1.15;
-      margin-bottom: 6px;
-    }
-
-    .subtitulo {
-      color: var(--cinza);
-      font-size: 15px;
-    }
-
-    /* DESTAQUE */
-
-    .hero {
-      padding: 26px 0 16px;
-    }
-
-    .hero-box {
-      background: linear-gradient(135deg, var(--azul), var(--azul2));
-      color: white;
-      border-radius: 18px;
-      padding: 25px 22px;
-      text-align: center;
-      box-shadow: 0 8px 25px rgba(20, 55, 80, .12);
-    }
-
-    .hero-box .tag {
-      display: inline-block;
-      background: rgba(255,255,255,.14);
-      border: 1px solid rgba(255,255,255,.25);
-      padding: 5px 12px;
-      border-radius: 50px;
-      font-size: 12px;
-      font-weight: bold;
-      margin-bottom: 12px;
-    }
-
-    .hero-box h2 {
-      font-size: 24px;
-      margin-bottom: 8px;
-    }
-
-    .hero-box p {
-      font-size: 14px;
-      opacity: .93;
-    }
-
-    /* INTRODUÇÃO */
-
-    .intro {
-      text-align: center;
-      padding: 10px 12px 22px;
-    }
-
-    .intro h3 {
-      color: var(--azul);
-      font-size: 19px;
-      margin-bottom: 7px;
-    }
-
-    .intro p {
-      color: var(--cinza);
-      font-size: 14px;
-    }
-
-    /* PRODUTOS */
-
-    .produtos {
-      display: grid;
-      gap: 13px;
-      margin-bottom: 22px;
-    }
-
-    .produto {
-      background: white;
-      border: 1px solid var(--borda);
-      border-radius: 15px;
-      padding: 18px;
-      box-shadow: 0 3px 12px rgba(0,0,0,.035);
-    }
-
-    .produto-topo {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 15px;
-      margin-bottom: 12px;
-    }
-
-    .produto h4 {
-      color: var(--azul);
-      font-size: 17px;
-      margin-bottom: 3px;
-    }
-
-    .quantidade {
-      color: var(--cinza);
-      font-size: 13px;
-    }
-
-    .precos {
-      text-align: right;
-      min-width: 120px;
-    }
-
-    .preco-de {
-      color: #89949b;
-      text-decoration: line-through;
-      font-size: 12px;
-    }
-
-    .preco-por {
-      color: var(--verde-escuro);
-      font-size: 20px;
-      font-weight: bold;
-      white-space: nowrap;
-    }
-
-    .uso {
-      background: var(--cinza-claro);
-      border-radius: 9px;
-      padding: 10px 12px;
-      font-size: 13px;
-      color: #56646d;
-    }
-
-    .uso strong {
-      color: var(--azul);
-    }
-
-    .total-item {
-      font-size: 12px;
-      color: var(--cinza);
-      margin-top: 7px;
-    }
-
-    /* RESUMO */
-
-    .resumo {
-      background: white;
-      border: 2px solid var(--verde);
-      border-radius: 17px;
-      overflow: hidden;
-      margin: 24px 0;
-    }
-
-    .resumo-conteudo {
-      padding: 21px;
-      text-align: center;
-    }
-
-    .resumo-titulo {
-      color: var(--azul);
-      font-weight: bold;
-      font-size: 15px;
-      margin-bottom: 8px;
-    }
-
-    .total-antigo {
-      color: #8b969d;
-      font-size: 14px;
-      margin-bottom: 3px;
-    }
-
-    .total-antigo span {
-      text-decoration: line-through;
-    }
-
-    .total-label {
-      color: var(--cinza);
-      font-size: 13px;
-    }
-
-    .total-valor {
-      color: var(--verde-escuro);
-      font-size: 36px;
-      line-height: 1.1;
-      font-weight: 800;
-      margin: 4px 0 7px;
-    }
-
-    .economia {
-      display: inline-block;
-      background: var(--verde-claro);
-      color: var(--verde-escuro);
-      font-size: 12px;
-      font-weight: bold;
-      border-radius: 50px;
-      padding: 6px 12px;
-    }
-
-    /* PAGAMENTO */
-
-    .pagamento {
-      background: var(--azul);
-      color: white;
-      padding: 16px;
-      text-align: center;
-    }
-
-    .pagamento strong {
-      font-size: 16px;
-    }
-
-    .pagamento p {
-      margin-top: 3px;
-      font-size: 12px;
-      opacity: .9;
-    }
-
-    /* AVISO */
-
-    .aviso {
-      background: #fff8e8;
-      border: 1px solid #f1dfad;
-      border-radius: 12px;
-      padding: 14px 16px;
-      margin: 20px 0;
-      color: #6f623f;
-      font-size: 12px;
-      line-height: 1.55;
-    }
-
-    .aviso strong {
-      color: #594d2f;
-    }
-
-    /* WHATSAPP */
-
-    .whatsapp-area {
-      text-align: center;
-      padding: 4px 0 30px;
-    }
-
-    .whatsapp-area h3 {
-      color: var(--azul);
-      font-size: 18px;
-      margin-bottom: 6px;
-    }
-
-    .whatsapp-area p {
-      color: var(--cinza);
-      font-size: 13px;
-      margin-bottom: 14px;
-    }
-
-    .btn-whatsapp {
-      display: block;
-      width: 100%;
-      background: var(--verde);
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 16px;
-      padding: 16px 20px;
-      border-radius: 12px;
-      transition: .2s ease;
-    }
-
-    .btn-whatsapp:hover {
-      background: var(--verde-escuro);
-      transform: translateY(-1px);
-    }
-
-    /* RODAPÉ */
-
-    footer {
-      border-top: 1px solid var(--borda);
-      background: white;
-      padding: 22px 0 28px;
-      text-align: center;
-      color: var(--cinza);
-      font-size: 11px;
-    }
-
-    footer strong {
-      display: block;
-      color: var(--azul);
-      font-size: 13px;
-      margin-bottom: 4px;
-    }
-
-    @media (max-width: 520px) {
-
-      h1 {
-        font-size: 23px;
-      }
-
-      .hero-box h2 {
-        font-size: 21px;
-      }
-
-      .produto-topo {
-        display: block;
-      }
-
-      .precos {
-        text-align: left;
-        margin-top: 10px;
-      }
-
-      .total-valor {
-        font-size: 32px;
-      }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#30339b">
+<meta name="description" content="Confira o orçamento dos medicamentos da prescrição do Dr. Felipe Magno na Nova Rede Barra Life Drogaria. Ajuste seu pedido e finalize pelo WhatsApp.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Dr. Felipe Magno | SOMENTE MAMA">
+<meta property="og:description" content="4 medicamentos por R$ 219,26. No PIX: R$ 213,78. Confira seu orçamento e finalize pelo WhatsApp.">
+<title>Dr. Felipe Magno | SOMENTE MAMA</title>
+
+<style>
+:root{--ink:#24354b;--muted:#697380;--green:#cf2639;--line:#e5e7eb;--blue:#30339b}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:20px}
+body{margin:0;background:#f7f7f8;color:var(--ink);font:14px/1.5 Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+button,input{font:inherit}
+button,a{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+button{cursor:pointer}
+button:disabled{opacity:.3;cursor:default}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #cf2639;outline-offset:3px}
+.wrap{max-width:1020px;margin:auto;padding:0 22px}
+.topbar{background:white;color:var(--ink);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:15px;min-height:70px}
+.brand{display:flex;align-items:center;gap:10px}
+.brandmark{display:grid;place-items:center;width:35px;height:35px;border-radius:9px;background:var(--ink);color:white;font-size:29px}
+.brand strong{display:block;font-size:16px}
+.brand small{display:block;font-size:10px;opacity:.85}
+.top-contact{text-decoration:none;font-size:12px;color:var(--muted)}
+.dot{display:none}
+.hero{padding:27px 0 20px}
+.eyebrow{font-size:11px;font-weight:700;color:var(--blue);margin:0 0 5px}
+.hero h1{font-size:28px;line-height:1.2;letter-spacing:-.8px;margin:0 0 8px}
+.intro{font-size:13px;color:var(--muted);margin:0}
+.prescription{margin-top:9px;font-size:12px;color:var(--muted)}
+.prescription strong{color:var(--ink);margin-left:5px}
+.service{display:flex;gap:10px;align-items:flex-start;background:#edf8fd;border-radius:9px;padding:12px 14px;margin-bottom:23px;color:#596574;font-size:11px}
+.service svg{width:20px;height:20px;flex-shrink:0;color:var(--blue)}
+.service strong{color:#24354b;font-size:12px}
+.service p{margin:2px 0 0}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:22px;align-items:start}
+.section-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+h2{font-size:17px;margin:0;letter-spacing:-.3px}
+.count{font-size:11px;color:var(--muted)}
+.hint{font-size:11px;color:var(--muted);margin:7px 0 13px}
+.catalog{display:grid;gap:9px}
+.product{background:white;border:1px solid var(--line);border-radius:10px;padding:14px 15px 0}
+.product-line{display:flex;gap:10px;align-items:flex-start}
+.number{display:none}
+.product-info{flex:1;min-width:0}
+.product h3{font-size:14px;line-height:1.4;margin:0 0 4px}
+.product h3 span{display:block;font-size:12px;font-weight:400;color:var(--muted)}
+.product-info p{font-size:11px;color:var(--muted);margin:0}
+.price{display:flex;flex-direction:column;align-items:flex-end;white-space:nowrap;gap:2px;font-variant-numeric:tabular-nums}
+.price del{font-size:11px;color:var(--muted)}
+.price strong{font-size:21px;color:var(--green);letter-spacing:-.5px}
+.product-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:9px;border-top:1px solid #eff0f2;min-height:48px}
+.product-bottom label{font-size:10px;color:var(--muted)}
+.stepper{display:flex;align-items:center}
+.stepper button{width:44px;height:44px;border:0;background:transparent;color:var(--blue);font-size:22px;border-radius:7px}
+.stepper button:hover{background:#edf8fd}
+.quantity{width:32px;height:30px;padding:0;border:1px solid var(--line);border-radius:6px;background:#f7f8fa;text-align:center;font-size:12px;color:var(--ink);appearance:textfield;-moz-appearance:textfield}
+.quantity::-webkit-inner-spin-button,.quantity::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+.special{border-color:#f0c9cf}
+.gift{display:flex;align-items:flex-start;gap:8px;margin-top:11px;padding:10px;background:#fff0f2;color:#ad2233;border-radius:7px}
+.gift>span{font-size:18px;line-height:1.2}
+.gift strong{display:block;font-size:10px}
+.gift p{font-size:11px;margin:2px 0 0}
+.aside{position:sticky;top:20px}
+.summary{background:white;border:1px solid var(--line);border-top:4px solid var(--blue);border-radius:11px;padding:20px}
+.summary .eyebrow{display:none}
+.summary h2{margin-bottom:20px}
+.summary-line{display:flex;justify-content:space-between;gap:8px;color:var(--muted);font-size:12px}
+.total-label{display:block;font-size:12px;margin-top:12px}
+.total{display:block;font-size:37px;font-weight:700;line-height:1.3;letter-spacing:-1px;color:var(--green);font-variant-numeric:tabular-nums}
+.saving{margin-top:12px;padding:10px;border-radius:7px;font-size:12px;background:#fff0f2;color:#ad2233}
+.included{font-size:11px;color:var(--muted);margin:9px 0 0}
+hr{border:0;border-top:1px solid var(--line);margin:18px 0}
+fieldset{border:0;padding:0;margin:0}
+legend{font-size:12px;font-weight:700;margin-bottom:9px}
+.payments{display:grid;gap:7px}
+.payment{display:flex;align-items:center;gap:8px;min-height:44px;border:1px solid var(--line);border-radius:7px;padding:9px 11px;cursor:pointer;font-size:12px}
+.payment:has(input:checked){background:#edf8fd;border-color:var(--blue)}
+.payment input{margin:0;width:16px;height:16px;accent-color:var(--blue)}
+.cta{display:flex;align-items:center;justify-content:center;gap:7px;min-height:49px;padding:12px 9px;margin-top:17px;background:#cf2639;color:white;border-radius:8px;text-decoration:none;font-size:12px;font-weight:700}
+.cta:hover{background:#ae2030}
+.cta svg{width:21px;height:21px;flex-shrink:0}
+.checkout-note{font-size:10px;color:var(--muted);text-align:center;margin:9px 0 0}
+.summary-foot{font-size:11px;color:var(--muted);text-align:center;line-height:1.8;margin:13px 0}
+.summary-foot a{color:var(--blue);font-weight:700;text-decoration:none}
+.restore{border:0;background:none;padding:12px 0;min-height:44px;color:var(--blue);text-decoration:underline;text-underline-offset:3px;font-size:11px}
+.bottom-note{font-size:11px;color:var(--muted);margin:6px 0 0}
+footer{margin-top:28px;padding:19px 0;border-top:1px solid var(--line);font-size:10px;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;gap:10px}
+.mobile-bar{display:none}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+noscript p{border:1px solid #cf2639;padding:12px}
+
+@media(max-width:800px){
+.wrap{padding:0 16px}
+.topbar .wrap{min-height:63px}
+.top-contact{font-size:10px;max-width:100px;text-align:right}
+.hero{padding:22px 0 17px}
+.hero h1{font-size:24px;max-width:330px}
+.service{padding:11px;margin-bottom:20px}
+.layout{grid-template-columns:minmax(0,1fr);gap:17px}
+.aside{position:static}
+.summary{padding:19px}
+.payments{grid-template-columns:1fr 1fr}
+.payment:last-child{grid-column:auto}
+.summary h2{margin-bottom:15px}
+.total{font-size:38px}
+.mobile-bar{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:5;align-items:center;justify-content:space-between;gap:10px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:white;border-top:1px solid var(--line);box-shadow:0 -3px 15px #24354b10}
+.mobile-bar small{display:block;color:var(--muted);font-size:10px}
+.mobile-bar strong{font-size:21px;letter-spacing:-.5px;color:var(--green);white-space:nowrap}
+.mobile-bar .cta{margin:0;padding:11px 18px;min-height:44px;background:var(--blue)}
+footer{padding-bottom:110px}
+footer .wrap{display:block}
+footer span{display:block;margin-top:5px}
+}
+
+@media(max-width:390px){
+.wrap{padding:0 12px}
+.brand strong{font-size:14px}
+.brandmark{width:30px;height:32px}
+.top-contact{max-width:85px}
+.product{padding:12px 11px 0}
+.product-line{gap:7px}
+.price strong{font-size:20px}
+.product h3{font-size:13px}
+.mobile-bar{padding-left:12px;padding-right:12px}
+.mobile-bar .cta{padding-left:12px;padding-right:12px}
+}
+
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{
+.top-contact,.stepper,.restore,.cta,.mobile-bar{display:none}
+.layout{display:block}
+.aside{position:static;margin-top:18px}
+.product{break-inside:avoid}
+.topbar{background:white;color:var(--ink)}
+footer{padding-bottom:0}
+}
+
+.brand-logo{display:block;width:198px;height:auto;max-width:100%}
+.branch{font-size:11px;color:var(--muted);border-left:1px solid var(--line);padding-left:12px;white-space:nowrap}
+.topbar .wrap{min-height:80px}
+.service{border-left:3px solid #00aeef}
+.summary{border-top-color:var(--blue)}
+.cta{background:var(--blue)}
+.cta:hover{background:#252778}
+.top-contact{color:var(--blue)}
+@media(max-width:800px){
+.brand-logo{width:165px}
+.brand{gap:0}
+.branch{display:none}
+.topbar .wrap{min-height:66px}
+}
+
+/* Cores da Nova Rede: azul e ciano em áreas amplas, vermelho nas ofertas. */
+body{background:#eef7ff}
+.topbar{background:linear-gradient(110deg,#30339b 0%,#1769c4 62%,#00aeef 100%);border-bottom:0}
+.topbar .wrap{min-height:94px}
+.brand{background:white;border-radius:10px;padding:3px 12px 3px 4px}
+.brand-logo{width:198px}
+.branch{color:#30339b;border-left-color:#d8dff0}
+.top-contact{color:white;font-weight:700}
+.hero h1{color:#30339b}
+.hero .eyebrow{color:#075f9c}
+.service{background:#d7f3ff;border-left:4px solid #00aeef;color:#234c70}
+.service strong,.service svg{color:#075f9c}
+.count{background:#30339b;color:white;border-radius:20px;padding:4px 10px}
+.product{border-color:#d1e3f5;border-left:4px solid #00aeef}
+.price strong,.total{color:#cf2639}
+.special{border-color:#f0b7c0;border-left:4px solid #e3233b}
+.gift{background:#cf2639;color:white}
+.summary{border-color:#cbd9ef;border-top:5px solid #30339b}
+.summary h2{color:#30339b}
+.saving{background:#30339b;color:white}
+.payment:has(input:checked){background:#e1f5ff;border-color:#009fda}
+.cta{background:#30339b;color:white}
+.cta:hover{background:#232578}
+.mobile-bar{border-top:3px solid #00aeef;background:#fff}
+.mobile-bar .cta{background:#30339b}
+@media(max-width:800px){
+.topbar .wrap{min-height:82px}
+.brand{padding:2px 5px}
+.brand-logo{width:165px}
+.top-contact{max-width:105px;font-size:11px}
+}
+@media(max-width:390px){
+.brand-logo{width:148px}
+.top-contact{max-width:90px;font-size:10px}
+}
+@media print{
+.topbar{background:white}
+.gift{background:#fff0f2;color:#ad2233}
+.saving{background:#edf8fd;color:#30339b}
+}
+
+/* Paleta próxima à página original. */
+:root{--blue:#0056b3;--green:#dc3545;--ink:#24364b;--muted:#626d79;--line:#dde3e9}
+body{background:#f8f9fa}
+.topbar{background:#0056b3}
+.branch{color:#0056b3}
+.hero h1,.hero .eyebrow{color:#0056b3}
+.service{background:#fff3cd;border-left:4px solid #ffc107;color:#665218}
+.service strong,.service svg{color:#725711}
+.count{background:#e7f1ff;color:#0056b3}
+.product{border-color:#dde3e9;border-left:3px solid #0056b3}
+.price strong,.total{color:#dc3545}
+.special{border-color:#e9d28b;border-left:3px solid #ffc107}
+.gift{background:#fff3cd;color:#775713;border:1px solid #ffe49a}
+.summary{border-color:#dde3e9;border-top:4px solid #0056b3}
+.summary h2{color:#0056b3}
+.saving{background:#e6f7ed;color:#176238}
+.payment:has(input:checked){background:#edf5ff;border-color:#0056b3}
+.cta,.mobile-bar .cta{background:#16833e;color:#fff}
+.cta:hover,.mobile-bar .cta:hover{background:#116b32}
+.mobile-bar{border-top:2px solid #0056b3}
+@media print{
+.topbar{background:white}
+.gift{background:#fff3cd;color:#775713}
+}
+.surgery-type{margin:10px 0 0;font-size:12px;color:var(--muted)}
+.surgery-type strong{color:var(--blue)}
+
+/* Identidade do logo Nova Rede: azul, ciano e vermelho. */
+:root{--blue:#30339b;--green:#d52338;--ink:#26334a;--muted:#626d79;--line:#dfe5ef}
+body{background:#f5f9fd}
+.topbar{background:linear-gradient(110deg,#30339b 0%,#176fc2 65%,#00aeef 100%)}
+.branch,.hero h1,.hero .eyebrow,.summary h2{color:#30339b}
+.service{background:#e4f7ff;border-left:4px solid #00aeef;color:#28546d}
+.service strong,.service svg{color:#09638a}
+.count{background:#30339b;color:white}
+.product{border-color:#dfe5ef;border-left:3px solid #00aeef;background:white}
+.price strong,.total{color:#d52338}
+.special{border-color:#f0bdc5;border-left:3px solid #ed1c2e}
+.gift{background:#fff0f2;color:#b51d30;border:1px solid #f5c5cd}
+.summary{border-color:#dfe5ef;border-top:4px solid #30339b}
+.saving{background:#e4f7ff;color:#09638a}
+.payment:has(input:checked){background:#e4f7ff;border-color:#009bd5}
+.cta,.mobile-bar .cta{background:#30339b;color:white}
+.cta:hover,.mobile-bar .cta:hover{background:#232578}
+.mobile-bar{border-top:3px solid #00aeef}
+@media print{
+.topbar{background:white}
+.gift{background:#fff0f2;color:#b51d30}
+}
+
+/* Cores em áreas visíveis, seguindo o logo enviado. */
+.topbar{background:#2f2c9b;border-bottom:6px solid #00aeef}
+.topbar .wrap{min-height:96px}
+.brand{background:white;border-radius:9px;padding:4px 12px 4px 4px}
+.brand-logo{width:185px}
+.top-contact{color:#fff}
+.hero h1{color:#2f2c9b}
+.service{background:#00aeef;color:#092d4b;border-left:0}
+.service strong,.service svg{color:#092d4b}
+.section-head{background:#2f2c9b;color:white;padding:11px 14px;border-radius:8px}
+.count{background:white;color:#2f2c9b}
+.product{border-left:4px solid #00aeef}
+.price strong,.total{color:#ed1c2e}
+.special{border-left:4px solid #ed1c2e}
+.gift{background:#d8172b;color:white;border:0}
+.summary{border-top:6px solid #00aeef}
+.summary h2{background:#2f2c9b;color:white;margin:-20px -20px 20px;padding:17px 20px}
+.saving{background:#2f2c9b;color:white}
+.cta,.mobile-bar .cta{background:#2f2c9b;color:white}
+.cta:hover,.mobile-bar .cta:hover{background:#232078}
+.mobile-bar{border-top:4px solid #00aeef}
+@media(max-width:800px){
+.topbar .wrap{min-height:86px}
+.brand-logo{width:160px}
+.summary h2{margin:-19px -19px 18px;padding:17px 19px}
+}
+@media(max-width:390px){.brand-logo{width:145px}}
+@media print{
+.topbar,.section-head,.summary h2{background:white;color:#2f2c9b}
+.gift{background:#fff0f2;color:#b51d30}
+}
+
+.cta.checkout{background:#16833e;color:#fff}
+.cta.checkout:hover{background:#116b32}
+#whatsapp-checkout,#whatsapp-checkout:hover,#whatsapp-checkout:focus,#whatsapp-checkout:active{background:#25D366;color:#fff}
+.credit-note{display:block;font-size:10px;color:var(--muted);margin-top:3px}
+.installments{margin-top:14px}
+.installments[hidden]{display:none}
+.installments .payment{margin-top:7px}
+.rounding-note{font-size:10px;color:var(--muted);margin:8px 0 0}
+.pix-details{background:#e8f7ee;border:1px solid #b8dcc7;border-radius:8px;padding:12px;margin-top:14px;font-size:12px;color:#205337;overflow-wrap:anywhere}
+.pix-details p{margin:7px 0;line-height:1.7}
+.pix-details small{font-size:10px}
+.pix-details[hidden]{display:none}
+.price strong,.total,.mobile-bar strong{color:#087c4b}
+.special{border-color:#badfcd;border-left-color:#14965d}
+.gift{background:#e5f5ec;color:#08633b;border:1px solid #b9dfc9}
+.saving{background:#e5f5ec;color:#08633b}
+.price-basis{font-size:10px;color:var(--muted);font-weight:400}
+.treatment-note{font-size:11px;line-height:1.6;color:var(--muted);margin:10px 0 0}
+.price{white-space:normal;flex-shrink:0}
+.price strong,.price del{white-space:nowrap}
+.pix-discount{font-size:12px;color:#08633b;margin:10px 0 0}
+.pix-discount:empty{display:none}
+.pix-discount{background:#dff5e8;border:1px solid #9fd2b4;border-left:5px solid #138653;border-radius:8px;padding:13px;font-size:14px;font-weight:700;line-height:1.7;color:#075c36;margin:14px 0}
+.pix-discount:empty{display:none}
+#pix-offer{font-size:12px;font-weight:700;line-height:1.6;color:#087345;margin-top:5px}
+.payment:has(#pix-offer){background:#f0fbf4;border-color:#a7d6b9}
+.payments{grid-template-columns:1fr}
+.doctor-highlight{display:flex;justify-content:space-between;align-items:center;gap:24px;background:#fff;border:1px solid #dce5f2;border-left:5px solid #00aeef;border-radius:12px;padding:23px 25px;margin-bottom:12px}
+.doctor-label{margin:0 0 5px;color:#626d79;font-size:12px}
+.hero .doctor-highlight h1{font-size:34px;line-height:1.15;max-width:none;margin:0;color:#2f2c9b;letter-spacing:-.7px}
+.surgery-highlight{background:#e4f7ff;border-radius:8px;padding:13px 18px;flex-shrink:0}
+.surgery-highlight span{display:block;font-size:11px;color:#28546d;margin-bottom:3px}
+.surgery-highlight strong{display:block;font-size:17px;color:#2f2c9b;letter-spacing:.4px}
+@media(max-width:600px){
+.doctor-highlight{display:block;padding:19px 17px}
+.hero .doctor-highlight h1{font-size:29px}
+.surgery-highlight{margin-top:15px;padding:11px 13px}
+.surgery-highlight strong{font-size:16px}
+}
+.product-line{display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:12px}
+.product-photo{width:64px;height:64px;object-fit:contain;background:white;border-radius:6px}
+.product-line .price{max-width:145px}
+@media(max-width:600px){
+.product-line{grid-template-columns:48px minmax(0,1fr);gap:8px 10px}
+.product-photo{width:48px;height:48px;grid-row:1 / 3}
+.product-line .price{grid-column:2;align-items:flex-start;text-align:left;max-width:none}
+.product-line .price strong{font-size:21px}
+}
+.installments .payment[hidden]{display:none}
+</style>
 </head>
 
 <body>
-
-<header>
-  <div class="container header-inner">
-
-    <div class="marca">
-      Atendimento pós-operatório
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand">
+      <img class="brand-logo" src="data:image/png;base64,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" width="291" height="110" alt="Nova Rede Drogarias">
+      <span class="branch">Barra Life</span>
     </div>
-
-    <h1>
-      Dr. Felipe Magno
-    </h1>
-
-    <div class="subtitulo">
-      Orçamento especial para pacientes
-    </div>
-
+    <a class="top-contact" href="https://wa.me/5521974377551" target="_blank" rel="noopener noreferrer">
+      <span class="dot" aria-hidden="true"></span>Atendimento pelo WhatsApp ↗
+    </a>
   </div>
 </header>
 
-
-<main>
-
-  <!-- HERO -->
-
-  <section class="hero">
-
-    <div class="container">
-
-      <div class="hero-box">
-
-        <div class="tag">
-          PROTOCOLO PÓS-OPERATÓRIO
-        </div>
-
-        <h2>
-          Somente Mama
-        </h2>
-
-        <p>
-          Medicamentos do protocolo organizados em um único orçamento,
-          de forma simples e prática.
-        </p>
-
+<main class="wrap">
+  <section class="hero" aria-labelledby="page-title">
+    <div class="doctor-highlight">
+      <div>
+        <p class="doctor-label">Orçamento da prescrição</p>
+        <h1 id="page-title">Dr. Felipe Magno</h1>
       </div>
-
+      <div class="surgery-highlight">
+        <span>Tipo de cirurgia</span>
+        <strong>SOMENTE MAMA</strong>
+      </div>
     </div>
-
+    <p class="intro">Medicamentos para o seu pós-operatório. Confira as ofertas e finalize pelo WhatsApp.</p>
   </section>
 
-
-  <section class="container">
-
-    <div class="intro">
-
-      <h3>
-        Medicamentos prescritos
-      </h3>
-
-      <p>
-        Confira os medicamentos, quantidades e valores especiais
-        para pacientes do Dr. Felipe Magno.
-      </p>
-
+  <div class="service">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+      <path d="M4 5h16v16H4zM8 5V3h8v2M8 12h8m-4-4v8"/>
+    </svg>
+    <div>
+      <strong>Retirada no hospital</strong>
+      <p>Após o pagamento, preparamos seus medicamentos com nota fiscal e entregamos no hospital na véspera da cirurgia. Retire na recepção no dia da entrada. Combine pelo WhatsApp.</p>
     </div>
-
-
-    <div class="produtos">
-
-
-      <!-- CEFALEXINA -->
-
-      <article class="produto">
-
-        <div class="produto-topo">
-
-          <div>
-
-            <h4>
-              Cefalexina 500 mg c/10
-            </h4>
-
-            <div class="quantidade">
-              Quantidade: 3 caixas
-            </div>
-
-          </div>
-
-          <div class="precos">
-
-            <div class="preco-de">
-              de R$ 35,33 cada
-            </div>
-
-            <div class="preco-por">
-              R$ 19,99
-            </div>
-
-            <div class="total-item">
-              3 caixas = R$ 59,97
-            </div>
-
-          </div>
-
-        </div>
-
-        <div class="uso">
-
-          <strong>Conforme prescrição:</strong>
-          tomar 1 comprimido a cada 6 horas,
-          durante 7 dias.
-
-        </div>
-
-      </article>
-
-
-      <!-- DIPIRONA -->
-
-      <article class="produto">
-
-        <div class="produto-topo">
-
-          <div>
-
-            <h4>
-              Dipirona Monoidratada 1 g c/10
-            </h4>
-
-            <div class="quantidade">
-              Quantidade: 2 caixas
-            </div>
-
-          </div>
-
-          <div class="precos">
-
-            <div class="preco-de">
-              de R$ 24,19 cada
-            </div>
-
-            <div class="preco-por">
-              R$ 14,99
-            </div>
-
-            <div class="total-item">
-              2 caixas = R$ 29,98
-            </div>
-
-          </div>
-
-        </div>
-
-        <div class="uso">
-
-          <strong>Conforme prescrição:</strong>
-          tomar 1 comprimido a cada 6 horas,
-          durante 5 dias,
-          <strong>se houver dor.</strong>
-
-        </div>
-
-      </article>
-
-
-      <!-- DEOCIL -->
-
-      <article class="produto">
-
-        <div class="produto-topo">
-
-          <div>
-
-            <h4>
-              Deocil SL 10 mg c/20
-            </h4>
-
-            <div class="quantidade">
-              Quantidade: 1 caixa
-            </div>
-
-          </div>
-
-          <div class="precos">
-
-            <div class="preco-de">
-              de R$ 85,32
-            </div>
-
-            <div class="preco-por">
-              R$ 79,35
-            </div>
-
-            <div class="total-item">
-              Total: R$ 79,35
-            </div>
-
-          </div>
-
-        </div>
-
-        <div class="uso">
-
-          <strong>Conforme prescrição:</strong>
-          tomar 1 comprimido a cada 6 horas,
-          durante 5 dias.
-
-        </div>
-
-      </article>
-
-
-      <!-- VONAU -->
-
-      <article class="produto">
-
-        <div class="produto-topo">
-
-          <div>
-
-            <h4>
-              Vonau Flash 4 mg c/10
-            </h4>
-
-            <div class="quantidade">
-              Quantidade: 1 caixa
-            </div>
-
-          </div>
-
-          <div class="precos">
-
-            <div class="preco-de">
-              de R$ 53,72
-            </div>
-
-            <div class="preco-por">
-              R$ 49,96
-            </div>
-
-            <div class="total-item">
-              Total: R$ 49,96
-            </div>
-
-          </div>
-
-        </div>
-
-        <div class="uso">
-
-          <strong>Conforme prescrição:</strong>
-          tomar 1 comprimido a cada 8 horas,
-          durante 5 dias,
-          <strong>somente em caso de náusea ou vômitos.</strong>
-
-        </div>
-
-      </article>
-
-    </div>
-
-
-    <!-- TOTAL -->
-
-    <section class="resumo">
-
-      <div class="resumo-conteudo">
-
-        <div class="resumo-titulo">
-          Orçamento completo — Somente Mama
-        </div>
-
-        <div class="total-antigo">
-          Valor normal:
-          <span>R$ 308,41</span>
-        </div>
-
-        <div class="total-label">
-          Valor especial para pacientes do Dr. Felipe Magno
-        </div>
-
-        <div class="total-valor">
-          R$ 219,26
-        </div>
-
-        <div class="economia">
-          Você economiza R$ 89,15
-        </div>
-
-      </div>
-
-
-      <div class="pagamento">
-
-        <strong>
-          Pagamento em até 4x sem juros
-        </strong>
-
-        <p>
-          Consulte as condições no atendimento.
-        </p>
-
-      </div>
-
-    </section>
-
-
-    <!-- AVISO -->
-
-    <div class="aviso">
-
-      <strong>Importante:</strong>
-
-      as orientações apresentadas nesta página devem seguir
-      a prescrição médica entregue à paciente.
-
-      Em caso de qualquer divergência, alteração ou dúvida,
-      prevalece a receita e a orientação do médico responsável.
-
-    </div>
-
-
-    <!-- WHATSAPP -->
-
-    <section class="whatsapp-area">
-
-      <h3>
-        Quer confirmar seu orçamento?
-      </h3>
-
-      <p>
-        Clique abaixo e fale diretamente com a NR Drogarias.
-      </p>
-
-
-      <a
-        class="btn-whatsapp"
-
-        href="https://wa.me/5521974377551?text=Ol%C3%A1%2C%20vim%20do%20site%20do%20Dr.%20Felipe%20Magno%20-%20Somente%20Mama.%20Gostaria%20de%20confirmar%20meu%20or%C3%A7amento."
-
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-
-        Falar com a NR Drogarias pelo WhatsApp
-
-      </a>
-
-    </section>
-
-
-  </section>
-
-</main>
-
-
-<footer>
-
-  <div class="container">
-
-    <strong>
-      NR Drogarias
-    </strong>
-
-    Atendimento especial aos pacientes do Dr. Felipe Magno.
-
-    <br>
-
-    Valores sujeitos à disponibilidade de estoque.
-
-    <br><br>
-
-    Esta página possui finalidade comercial e informativa
-    e não substitui a prescrição ou orientação médica.
-
   </div>
 
+  <div class="layout">
+    <section aria-labelledby="products-title">
+      <div class="section-head">
+        <h2 id="products-title">Seus medicamentos</h2>
+        <span class="count">4 produtos</span>
+      </div>
+      <p class="hint">Cada conjunto inclui as quantidades abaixo.</p>
+
+      <div id="catalog" class="catalog">
+        <article class="product" data-name="Cefalexina 500 mg c/10" data-description="3 caixas · 30 comprimidos" data-gross="10599" data-price="5997" data-boxes="3" data-gift="0" data-gift-unit="caixa(s)">
+          <div class="product-line">
+            <span class="number" aria-hidden="true">01</span>
+            <div class="product-info">
+              <h3>Cefalexina <span>500 mg c/10</span></h3>
+              <p>3 caixas · 30 comprimidos</p>
+            </div>
+            <div class="price">
+              <span class="sr-only">Valor bruto:</span>
+              <del>R$ 105,99</del>
+              <span class="sr-only">Oferta:</span>
+              <strong>R$ 59,97</strong>
+            </div>
+          </div>
+          <div class="product-line">
+            <img class="product-photo" src="./imagem/cefalexina.jpg" alt="Cefalexina" width="64" height="64" loading="lazy" onerror="this.style.visibility='hidden'">
+            <span class="number" aria-hidden="true">01</span>
+            <div class="product-info">
+              <h3>Cefalexina <span>500 mg c/10</span></h3>
+              <p>3 caixas · 30 comprimidos</p>
+            </div>
+            <div class="price">
+              <span class="sr-only">Valor bruto:</span>
+              <del>R$ 105,99</del>
+              <span class="sr-only">Oferta:</span>
+              <strong>R$ 59,97</strong>
+            </div>
+          </div>
+          <div class="product-bottom">
+            <label for="qty-0">Quantidade de conjuntos</label>
+            <div class="stepper">
+              <button type="button" data-step="-1" aria-label="Diminuir conjuntos de Cefalexina">−</button>
+              <input id="qty-0" class="quantity" type="number" min="0" max="99" step="1" inputmode="numeric" value="1" aria-label="Conjuntos de Cefalexina">
+              <button type="button" data-step="1" aria-label="Aumentar conjuntos de Cefalexina">+</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product" data-name="Deocil SL 10 mg c/20" data-description="1 caixa · 20 comprimidos" data-gross="8532" data-price="7935" data-boxes="1" data-gift="0" data-gift-unit="caixa(s)">
+          <div class="product-line">
+            <span class="number" aria-hidden="true">02</span>
+            <div class="product-info">
+              <h3>Deocil SL <span>10 mg c/20</span></h3>
+              <p>1 caixa · 20 comprimidos</p>
+            </div>
+            <div class="price">
+              <span class="sr-only">Valor bruto:</span>
+              <del>R$ 85,32</del>
+              <span class="sr-only">Oferta:</span>
+              <strong>R$ 79,35</strong>
+            </div>
+          </div>
+          <div class="product-line">
+            <img class="product-photo" src="./imagem/deocil.jpg" alt="Deocil SL" width="64" height="64" loading="lazy" onerror="this.style.visibility='hidden'">
+            <span class="number" aria-hidden="true">02</span>
+            <div class="product-info">
+              <h3>Deocil SL <span>10 mg c/20</span></h3>
+              <p>1 caixa · 20 comprimidos</p>
+            </div>
+            <div class="price">
+              <span class="sr-only">Valor bruto:</span>
+              <del>R$ 85,32</del>
+              <span class="sr-only">Oferta:</span>
+              <strong>R$ 79,35</strong>
+            </div>
+          </div>
+          <div class="product-bottom">
+            <label for="qty-1">Quantidade de conjuntos</label>
+            <div class="stepper">
+              <button type="button" data-step="-1" aria-label="Diminuir conjuntos de Deocil SL">−</button>
+              <input id="qty-1" class="quantity" type="number" min="0" max="99" step="1" inputmode="numeric" value="1" aria-label="Conjuntos de Deocil SL">
+              <button type="button" data-step="1" aria-label="Aumentar conjuntos de Deocil SL">+</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product" data-name="Dipirona Monoidratada 1 g c/10" data-description="2 caixas · 20 comprimidos" data-gross="4838" data-price="2998" data-boxes="2" data-gift="0" data-gift-unit="caixa(s)">
+          <div class="product-line">
+            <span class="number" aria-hidden="true">03</span>
+            <div class="product-info">
+              <h3>Dipirona Monoidratada <span>1 g c/10</span></h3>
+              <p>2 caixas · 20 comprimidos</p>
+            </div>
+            <div class="price">
+              <span class="sr-only">Valor bruto:</span>
+              <del>R$ 48,38</del>
+              <span class="sr-only">Oferta:</span>
+              <strong>R$ 29,98</strong>
+            </div>
+          </div>
+          <div class="product-line">
+            <img class="product-photo" src="./imagem/dipirona.jpg" alt="Dipirona Monoidratada" width="64" height="64" loading="lazy" onerror="this.style.visibility='hidden'">
+            <span class="number" aria-hidden="true">03</span>
+            <div class="product-info">
+              <h3>Dipirona Monoidratada <span>1 g c/10</span></h3>
+              <p>2 caixas · 20 comprimidos</p>
+            </div>
+            <div class="price">
+              <span class="sr-only">Valor bruto:</span>
+              <del>R$ 48,38</del>
+              <span class="sr-only">Oferta:</span>
+              <strong>R$ 29,98</strong>
+            </div>
+          </div>
+          <div class="product-bottom">
+            <label for="qty-2">Quantidade de conjuntos</label>
+            <div class="stepper">
+              <button type="button" data-step="-1" aria-label="Diminuir conjuntos de Dipirona Monoidratada">−</button>
+              <input id="qty-2" class="quantity" type="number" min="0" max="99" step="1" inputmode="numeric" value="1" aria-label="Conjuntos de Dipirona Monoidratada">
+              <button type="button" data-step="1" aria-label="Aumentar conjuntos de Dipirona Monoidratada">+</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product" data-name="Vonau Flash 4 mg c/10" data-description="1 caixa · 10 comprimidos" data-gross="5372" data-price="4996" data-boxes="1" data-gift="0" data-gift-unit="caixa(s)">
+          <div class="product-line">
+            <span class="number" aria-hidden="true">04</span>
+            <div class="product-info">
+              <h3>Vonau Flash <span>4 mg c/10</span></h3>
+              <p>1 caixa · 10 comprimidos</p>
+            </div>
+            <div class="price">
+              <span class="sr-only">Valor bruto:</span>
+              <del>R$ 53,72</del>
+              <span class="sr-only">Oferta:</span>
+              <strong>R$ 49,96</strong>
+            </div>
+          </div>
+          <div class="product-line">
+            <img class="product-photo" src="./imagem/vonau.jpg" alt="Vonau Flash" width="64" height="64" loading="lazy" onerror="this.style.visibility='hidden'">
+            <span class="number" aria-hidden="true">04</span>
+            <div class="product-info">
+              <h3>Vonau Flash <span>4 mg c/10</span></h3>
+              <p>1 caixa · 10 comprimidos</p>
+            </div>
+            <div class="price">
+              <span class="sr-only">Valor bruto:</span>
+              <del>R$ 53,72</del>
+              <span class="sr-only">Oferta:</span>
+              <strong>R$ 49,96</strong>
+            </div>
+          </div>
+          <div class="product-bottom">
+            <label for="qty-3">Quantidade de conjuntos</label>
+            <div class="stepper">
+              <button type="button" data-step="-1" aria-label="Diminuir conjuntos de Vonau Flash">−</button>
+              <input id="qty-3" class="quantity" type="number" min="0" max="99" step="1" inputmode="numeric" value="1" aria-label="Conjuntos de Vonau Flash">
+              <button type="button" data-step="1" aria-label="Aumentar conjuntos de Vonau Flash">+</button>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <button class="restore" id="restore" type="button">Restaurar orçamento completo</button>
+      <p class="bottom-note">Confira os itens com sua prescrição antes de finalizar.</p>
+    </section>
+
+    <aside class="aside" aria-label="Resumo e pagamento">
+      <section class="summary" id="resumo" aria-labelledby="summary-title">
+        <p class="eyebrow">Seu orçamento</p>
+        <h2 id="summary-title">Resumo do pedido</h2>
+
+        <div id="totals" aria-live="polite" aria-atomic="true">
+          <div class="summary-line">
+            <span>Valor bruto de referência</span>
+            <del id="gross">R$ 293,41</del>
+          </div>
+          <p id="pix-discount" class="pix-discount"></p>
+          <span class="total-label" id="total-label">Total no PIX</span>
+          <strong class="total" id="total">R$ 213,78</strong>
+          <div class="saving">Você economiza <strong id="saving">R$ 79,63</strong></div>
+        </div>
+
+        <p class="included" id="included">4 produtos selecionados</p>
+        <hr>
+
+        <fieldset>
+          <legend>Como prefere pagar?</legend>
+          <div class="payments">
+            <label class="payment">
+              <input type="radio" name="payment" value="PIX" checked>
+              <span>
+                PIX
+                <small class="credit-note" id="pix-offer">Desconto adicional de R$ 5,48 — de R$ 219,26 por R$ 213,78</small>
+              </span>
+            </label>
+            <input type="radio" name="payment" value="Cartão de Crédito" hidden>
+          </div>
+        </fieldset>
+
+        <div id="pix-details" class="pix-details">
+          <strong>Dados para pagamento via PIX</strong>
+          <p>
+            Chave PIX: <b>21974377551</b><br>
+            Banco: <b>Stone</b><br>
+            Favorecido: <b>Nova Rede Barra Life Drogaria Ltda</b>
+          </p>
+          <small>Estes dados serão incluídos na mensagem do WhatsApp.</small>
+        </div>
+
+        <fieldset id="installments" class="installments">
+          <legend>Cartão de crédito — até 2x sem juros</legend>
+          <label class="payment">
+            <input type="radio" name="installment" value="1">
+            <span id="plan-1">À vista (1x): R$ 219,26</span>
+          </label>
+          <label class="payment">
+            <input type="radio" name="installment" value="2">
+            <span id="plan-2">2x sem juros: 2x de R$ 109,63</span>
+          </label>
+          <label class="payment" hidden>
+            <input type="radio" name="installment" value="3" disabled>
+            <span id="plan-3">3x sem juros</span>
+          </label>
+          <p class="rounding-note">Quando necessário, a primeira parcela inclui o ajuste de centavos para manter o total exato.</p>
+        </fieldset>
+
+        <a id="whatsapp-checkout" style="background-color:#25D366;color:#fff" class="cta checkout" href="https://wa.me/5521974377551" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+            <path d="M21 11.5a9 9 0 0 1-13.2 8L3 21l1.5-4.8A9 9 0 1 1 21 11.5Z"/>
+            <path d="M8 7c0 5 4 9 9 9l1-3-3-1-1 1c-1.5-.6-2.4-1.5-3-3l1-1-1-3Z"/>
+          </svg>
+          <span id="checkout-text">Finalizar pelo WhatsApp</span>
+          <span aria-hidden="true">↗</span>
+        </a>
+        <p class="checkout-note">Confira e envie seu pedido na conversa.</p>
+      </section>
+
+      <p class="summary-foot">
+        Precisa de ajuda? Fale com nossa equipe.<br>
+        <a href="https://wa.me/5521974377551" target="_blank" rel="noopener noreferrer">(21) 97437-7551</a>
+      </p>
+    </aside>
+  </div>
+
+  <noscript>
+    <p>Para ajustar as quantidades e gerar o pedido automaticamente, ative o JavaScript. Você também pode falar com a equipe pelo botão do WhatsApp.</p>
+  </noscript>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>© Nova Rede Barra Life Drogaria</div>
+    <span>Ofertas válidas enquanto durarem os estoques.</span>
+  </div>
 </footer>
 
+<div class="mobile-bar">
+  <div>
+    <small>Total da oferta</small>
+    <strong id="mobile-total">R$ 213,78</strong>
+  </div>
+  <a class="cta" href="#resumo">Revisar pedido <span aria-hidden="true">↑</span></a>
+</div>
 
+<script>
+'use strict';
+
+// Valores em centavos. Uma unidade do controle equivale a um conjunto completo.
+const cards = Array.from(document.querySelectorAll('.product'));
+
+const money = cents =>
+  (cents / 100).toLocaleString('pt-BR', {
+    style: 'currency',
+    currency: 'BRL'
+  });
+
+const normalize = input => {
+  const n = Number(input.value);
+  return Number.isFinite(n)
+    ? Math.min(99, Math.max(0, Math.floor(n)))
+    : 0;
+};
+
+function installmentLabel(total, count) {
+  if (count === 1) return 'À vista (1x): ' + money(total);
+
+  const base = Math.floor(total / count);
+  const first = base + total % count;
+
+  return count + 'x sem juros: ' +
+    (first === base
+      ? count + 'x de ' + money(base)
+      : '1ª de ' + money(first) + ' + ' +
+        (count - 1) + 'x de ' + money(base));
+}
+
+function updateOrder() {
+  let gross = 0;
+  let total = 0;
+  let selected = 0;
+
+  const lines = [
+    'Olá! Gostaria de fazer um pedido referente à prescrição do Dr. Felipe Magno.',
+    '*Tipo de cirurgia: SOMENTE MAMA*',
+    '',
+    '*DETALHES DO PEDIDO*'
+  ];
+
+  cards.forEach(card => {
+    const input = card.querySelector('.quantity');
+    const qty = normalize(input);
+
+    card.querySelector('[data-step="-1"]').disabled = qty === 0;
+    card.querySelector('[data-step="1"]').disabled = qty === 99;
+
+    if (!qty) return;
+
+    const d = card.dataset;
+    const itemGross = Number(d.gross) * qty;
+    const itemTotal = Number(d.price) * qty;
+
+    gross += itemGross;
+    total += itemTotal;
+    selected++;
+
+    lines.push(
+      '',
+      '*' + d.name + '*',
+      'Conjuntos: ' + qty + ' — cada conjunto: ' + d.description,
+      'Total de caixas: ' + (Number(d.boxes) * qty),
+      'Valor bruto: ~' + money(itemGross) + '~',
+      '*Oferta: ' + money(itemTotal) + '*'
+    );
+  });
+
+  const payment = document.querySelector(
+    'input[name="payment"]:checked'
+  ).value;
+
+  // Desconto adicional calculado e arredondado em centavos.
+  const pixDiscount = Math.round(total / 40);
+  const payable = payment === 'PIX' ? total - pixDiscount : total;
+
+  document.getElementById('pix-offer').textContent =
+    'Desconto adicional de ' + money(pixDiscount) +
+    ' — de ' + money(total) + ' por ' + money(total - pixDiscount);
+
+  document.getElementById('pix-discount').textContent =
+    payment === 'PIX' && selected
+      ? 'DESCONTO ADICIONAL NO PIX: ' + money(pixDiscount) +
+        ' • De ' + money(total) + ' por ' + money(payable)
+      : '';
+
+  document.getElementById('total-label').textContent =
+    payment === 'PIX' ? 'Total no PIX' : 'Total no cartão';
+
+  document.getElementById('gross').textContent = money(gross);
+  document.getElementById('total').textContent = money(payable);
+  document.getElementById('mobile-total').textContent = money(payable);
+  document.getElementById('saving').textContent = money(gross - payable);
+
+  document.getElementById('included').textContent =
+    selected
+      ? selected + (selected === 1
+          ? ' produto selecionado'
+          : ' produtos selecionados')
+      : 'Nenhum produto selecionado.';
+
+  const isCredit = payment === 'Cartão de Crédito';
+  document.getElementById('pix-details').hidden = payment !== 'PIX';
+
+  const installmentPanel = document.getElementById('installments');
+  installmentPanel.hidden = false;
+  installmentPanel.disabled = false;
+
+  const maxPlans = total > 30000 ? 3 : total > 20000 ? 2 : 1;
+
+  installmentPanel.querySelector('legend').textContent =
+    maxPlans === 1
+      ? 'Cartão de crédito — à vista (1x)'
+      : 'Cartão de crédito — até ' + maxPlans + 'x sem juros';
+
+  const plans = Array.from(
+    document.querySelectorAll('input[name="installment"]')
+  );
+
+  plans.forEach(plan => {
+    const count = Number(plan.value);
+    const available = count <= maxPlans;
+
+    plan.disabled = !available;
+    plan.closest('label').hidden = !available;
+
+    if (!available) plan.checked = false;
+
+    document.getElementById('plan-' + count).textContent =
+      installmentLabel(total, count);
+  });
+
+  if (!isCredit) {
+    plans.forEach(plan => {
+      plan.checked = false;
+    });
+  } else if (!plans.some(plan => plan.checked)) {
+    plans[0].checked = true;
+  }
+
+  const count = Number(
+    document.querySelector('input[name="installment"]:checked')?.value || 1
+  );
+
+  const paymentDetails =
+    payment + (isCredit ? ' — ' + installmentLabel(total, count) : '');
+
+  lines.push('', 'Subtotal das ofertas: ' + money(total));
+
+  if (payment === 'PIX') {
+    lines.push('Desconto adicional no PIX: ' + money(pixDiscount));
+  }
+
+  lines.push(
+    '',
+    '*VALOR BRUTO: ' + money(gross) + '*',
+    '*TOTAL FINAL: ' + money(payable) + '*',
+    '*ECONOMIA: ' + money(gross - payable) + '*',
+    '',
+    'Forma de pagamento: ' + paymentDetails,
+    '',
+    'Gostaria de combinar os detalhes do pagamento e da retirada no hospital.'
+  );
+
+  if (payment === 'PIX') {
+    lines.push(
+      '',
+      '*DADOS PARA PAGAMENTO VIA PIX*',
+      'Chave PIX: 21974377551',
+      'Banco: Stone',
+      'Favorecido: Nova Rede Barra Life Drogaria Ltda'
+    );
+  }
+
+  const message = selected
+    ? lines.join('\n')
+    : 'Olá! Gostaria de tirar uma dúvida sobre o orçamento SOMENTE MAMA da prescrição do Dr. Felipe Magno.';
+
+  document.querySelector('.checkout').href =
+    'https://wa.me/5521974377551?text=' + encodeURIComponent(message);
+
+  document.getElementById('checkout-text').textContent =
+    selected ? 'Finalizar pelo WhatsApp' : 'Falar com a equipe';
+}
+
+cards.forEach(card => {
+  const input = card.querySelector('.quantity');
+
+  card.querySelectorAll('[data-step]').forEach(button => {
+    button.addEventListener('click', () => {
+      input.value = Math.min(
+        99,
+        Math.max(0, normalize(input) + Number(button.dataset.step))
+      );
+      updateOrder();
+    });
+  });
+
+  input.addEventListener('input', () => {
+    if (input.value !== '') input.value = normalize(input);
+    updateOrder();
+  });
+
+  input.addEventListener('change', () => {
+    input.value = normalize(input);
+    updateOrder();
+  });
+
+  input.addEventListener('blur', () => {
+    input.value = normalize(input);
+    updateOrder();
+  });
+});
+
+document.querySelectorAll('input[name="payment"]').forEach(input => {
+  input.addEventListener('change', updateOrder);
+});
+
+document.querySelectorAll('input[name="installment"]').forEach(input => {
+  input.addEventListener('change', () => {
+    document.querySelector(
+      'input[name="payment"][value="Cartão de Crédito"]'
+    ).checked = true;
+    updateOrder();
+  });
+});
+
+document.getElementById('restore').addEventListener('click', () => {
+  cards.forEach(card => {
+    card.querySelector('.quantity').value = 1;
+  });
+  updateOrder();
+});
+
+updateOrder();
+</script>
 </body>
 </html>
