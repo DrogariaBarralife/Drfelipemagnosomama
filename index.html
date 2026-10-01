@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Dr. Felipe Magno | Pós-operatório - Somente Mama</title>
+
+  <meta name="description"
+        content="Orçamento especial de medicamentos para pacientes do Dr. Felipe Magno - protocolo pós-operatório Somente Mama.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --azul: #183b57;
+      --azul2: #245a7a;
+      --verde: #20a464;
+      --verde-escuro: #16824d;
+      --verde-claro: #eaf8f1;
+      --cinza: #687681;
+      --cinza-claro: #f4f6f7;
+      --borda: #e3e8eb;
+      --branco: #ffffff;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f7f8;
+      color: #26343d;
+      line-height: 1.45;
+    }
+
+    .container {
+      width: min(100% - 28px, 760px);
+      margin: 0 auto;
+    }
+
+    /* CABEÇALHO */
+
+    header {
+      background: var(--branco);
+      border-bottom: 1px solid var(--borda);
+    }
+
+    .header-inner {
+      padding: 22px 0 18px;
+      text-align: center;
+    }
+
+    .marca {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+      color: var(--cinza);
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      color: var(--azul);
+      font-size: 27px;
+      line-height: 1.15;
+      margin-bottom: 6px;
+    }
+
+    .subtitulo {
+      color: var(--cinza);
+      font-size: 15px;
+    }
+
+    /* DESTAQUE */
+
+    .hero {
+      padding: 26px 0 16px;
+    }
+
+    .hero-box {
+      background: linear-gradient(135deg, var(--azul), var(--azul2));
+      color: white;
+      border-radius: 18px;
+      padding: 25px 22px;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(20, 55, 80, .12);
+    }
+
+    .hero-box .tag {
+      display: inline-block;
+      background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.25);
+      padding: 5px 12px;
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .hero-box h2 {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+
+    .hero-box p {
+      font-size: 14px;
+      opacity: .93;
+    }
+
+    /* INTRODUÇÃO */
+
+    .intro {
+      text-align: center;
+      padding: 10px 12px 22px;
+    }
+
+    .intro h3 {
+      color: var(--azul);
+      font-size: 19px;
+      margin-bottom: 7px;
+    }
+
+    .intro p {
+      color: var(--cinza);
+      font-size: 14px;
+    }
+
+    /* PRODUTOS */
+
+    .produtos {
+      display: grid;
+      gap: 13px;
+      margin-bottom: 22px;
+    }
+
+    .produto {
+      background: white;
+      border: 1px solid var(--borda);
+      border-radius: 15px;
+      padding: 18px;
+      box-shadow: 0 3px 12px rgba(0,0,0,.035);
+    }
+
+    .produto-topo {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 15px;
+      margin-bottom: 12px;
+    }
+
+    .produto h4 {
+      color: var(--azul);
+      font-size: 17px;
+      margin-bottom: 3px;
+    }
+
+    .quantidade {
+      color: var(--cinza);
+      font-size: 13px;
+    }
+
+    .precos {
+      text-align: right;
+      min-width: 120px;
+    }
+
+    .preco-de {
+      color: #89949b;
+      text-decoration: line-through;
+      font-size: 12px;
+    }
+
+    .preco-por {
+      color: var(--verde-escuro);
+      font-size: 20px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .uso {
+      background: var(--cinza-claro);
+      border-radius: 9px;
+      padding: 10px 12px;
+      font-size: 13px;
+      color: #56646d;
+    }
+
+    .uso strong {
+      color: var(--azul);
+    }
+
+    .total-item {
+      font-size: 12px;
+      color: var(--cinza);
+      margin-top: 7px;
+    }
+
+    /* RESUMO */
+
+    .resumo {
+      background: white;
+      border: 2px solid var(--verde);
+      border-radius: 17px;
+      overflow: hidden;
+      margin: 24px 0;
+    }
+
+    .resumo-conteudo {
+      padding: 21px;
+      text-align: center;
+    }
+
+    .resumo-titulo {
+      color: var(--azul);
+      font-weight: bold;
+      font-size: 15px;
+      margin-bottom: 8px;
+    }
+
+    .total-antigo {
+      color: #8b969d;
+      font-size: 14px;
+      margin-bottom: 3px;
+    }
+
+    .total-antigo span {
+      text-decoration: line-through;
+    }
+
+    .total-label {
+      color: var(--cinza);
+      font-size: 13px;
+    }
+
+    .total-valor {
+      color: var(--verde-escuro);
+      font-size: 36px;
+      line-height: 1.1;
+      font-weight: 800;
+      margin: 4px 0 7px;
+    }
+
+    .economia {
+      display: inline-block;
+      background: var(--verde-claro);
+      color: var(--verde-escuro);
+      font-size: 12px;
+      font-weight: bold;
+      border-radius: 50px;
+      padding: 6px 12px;
+    }
+
+    /* PAGAMENTO */
+
+    .pagamento {
+      background: var(--azul);
+      color: white;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .pagamento strong {
+      font-size: 16px;
+    }
+
+    .pagamento p {
+      margin-top: 3px;
+      font-size: 12px;
+      opacity: .9;
+    }
+
+    /* AVISO */
+
+    .aviso {
+      background: #fff8e8;
+      border: 1px solid #f1dfad;
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin: 20px 0;
+      color: #6f623f;
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .aviso strong {
+      color: #594d2f;
+    }
+
+    /* WHATSAPP */
+
+    .whatsapp-area {
+      text-align: center;
+      padding: 4px 0 30px;
+    }
+
+    .whatsapp-area h3 {
+      color: var(--azul);
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+
+    .whatsapp-area p {
+      color: var(--cinza);
+      font-size: 13px;
+      margin-bottom: 14px;
+    }
+
+    .btn-whatsapp {
+      display: block;
+      width: 100%;
+      background: var(--verde);
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      padding: 16px 20px;
+      border-radius: 12px;
+      transition: .2s ease;
+    }
+
+    .btn-whatsapp:hover {
+      background: var(--verde-escuro);
+      transform: translateY(-1px);
+    }
+
+    /* RODAPÉ */
+
+    footer {
+      border-top: 1px solid var(--borda);
+      background: white;
+      padding: 22px 0 28px;
+      text-align: center;
+      color: var(--cinza);
+      font-size: 11px;
+    }
+
+    footer strong {
+      display: block;
+      color: var(--azul);
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+
+    @media (max-width: 520px) {
+
+      h1 {
+        font-size: 23px;
+      }
+
+      .hero-box h2 {
+        font-size: 21px;
+      }
+
+      .produto-topo {
+        display: block;
+      }
+
+      .precos {
+        text-align: left;
+        margin-top: 10px;
+      }
+
+      .total-valor {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container header-inner">
+
+    <div class="marca">
+      Atendimento pós-operatório
+    </div>
+
+    <h1>
+      Dr. Felipe Magno
+    </h1>
+
+    <div class="subtitulo">
+      Orçamento especial para pacientes
+    </div>
+
+  </div>
+</header>
+
+
+<main>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="container">
+
+      <div class="hero-box">
+
+        <div class="tag">
+          PROTOCOLO PÓS-OPERATÓRIO
+        </div>
+
+        <h2>
+          Somente Mama
+        </h2>
+
+        <p>
+          Medicamentos do protocolo organizados em um único orçamento,
+          de forma simples e prática.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="container">
+
+    <div class="intro">
+
+      <h3>
+        Medicamentos prescritos
+      </h3>
+
+      <p>
+        Confira os medicamentos, quantidades e valores especiais
+        para pacientes do Dr. Felipe Magno.
+      </p>
+
+    </div>
+
+
+    <div class="produtos">
+
+
+      <!-- CEFALEXINA -->
+
+      <article class="produto">
+
+        <div class="produto-topo">
+
+          <div>
+
+            <h4>
+              Cefalexina 500 mg c/10
+            </h4>
+
+            <div class="quantidade">
+              Quantidade: 3 caixas
+            </div>
+
+          </div>
+
+          <div class="precos">
+
+            <div class="preco-de">
+              de R$ 35,33 cada
+            </div>
+
+            <div class="preco-por">
+              R$ 19,99
+            </div>
+
+            <div class="total-item">
+              3 caixas = R$ 59,97
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="uso">
+
+          <strong>Conforme prescrição:</strong>
+          tomar 1 comprimido a cada 6 horas,
+          durante 7 dias.
+
+        </div>
+
+      </article>
+
+
+      <!-- DIPIRONA -->
+
+      <article class="produto">
+
+        <div class="produto-topo">
+
+          <div>
+
+            <h4>
+              Dipirona Monoidratada 1 g c/10
+            </h4>
+
+            <div class="quantidade">
+              Quantidade: 2 caixas
+            </div>
+
+          </div>
+
+          <div class="precos">
+
+            <div class="preco-de">
+              de R$ 24,19 cada
+            </div>
+
+            <div class="preco-por">
+              R$ 14,99
+            </div>
+
+            <div class="total-item">
+              2 caixas = R$ 29,98
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="uso">
+
+          <strong>Conforme prescrição:</strong>
+          tomar 1 comprimido a cada 6 horas,
+          durante 5 dias,
+          <strong>se houver dor.</strong>
+
+        </div>
+
+      </article>
+
+
+      <!-- DEOCIL -->
+
+      <article class="produto">
+
+        <div class="produto-topo">
+
+          <div>
+
+            <h4>
+              Deocil SL 10 mg c/20
+            </h4>
+
+            <div class="quantidade">
+              Quantidade: 1 caixa
+            </div>
+
+          </div>
+
+          <div class="precos">
+
+            <div class="preco-de">
+              de R$ 85,32
+            </div>
+
+            <div class="preco-por">
+              R$ 79,35
+            </div>
+
+            <div class="total-item">
+              Total: R$ 79,35
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="uso">
+
+          <strong>Conforme prescrição:</strong>
+          tomar 1 comprimido a cada 6 horas,
+          durante 5 dias.
+
+        </div>
+
+      </article>
+
+
+      <!-- VONAU -->
+
+      <article class="produto">
+
+        <div class="produto-topo">
+
+          <div>
+
+            <h4>
+              Vonau Flash 4 mg c/10
+            </h4>
+
+            <div class="quantidade">
+              Quantidade: 1 caixa
+            </div>
+
+          </div>
+
+          <div class="precos">
+
+            <div class="preco-de">
+              de R$ 53,72
+            </div>
+
+            <div class="preco-por">
+              R$ 49,96
+            </div>
+
+            <div class="total-item">
+              Total: R$ 49,96
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="uso">
+
+          <strong>Conforme prescrição:</strong>
+          tomar 1 comprimido a cada 8 horas,
+          durante 5 dias,
+          <strong>somente em caso de náusea ou vômitos.</strong>
+
+        </div>
+
+      </article>
+
+    </div>
+
+
+    <!-- TOTAL -->
+
+    <section class="resumo">
+
+      <div class="resumo-conteudo">
+
+        <div class="resumo-titulo">
+          Orçamento completo — Somente Mama
+        </div>
+
+        <div class="total-antigo">
+          Valor normal:
+          <span>R$ 308,41</span>
+        </div>
+
+        <div class="total-label">
+          Valor especial para pacientes do Dr. Felipe Magno
+        </div>
+
+        <div class="total-valor">
+          R$ 219,26
+        </div>
+
+        <div class="economia">
+          Você economiza R$ 89,15
+        </div>
+
+      </div>
+
+
+      <div class="pagamento">
+
+        <strong>
+          Pagamento em até 4x sem juros
+        </strong>
+
+        <p>
+          Consulte as condições no atendimento.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- AVISO -->
+
+    <div class="aviso">
+
+      <strong>Importante:</strong>
+
+      as orientações apresentadas nesta página devem seguir
+      a prescrição médica entregue à paciente.
+
+      Em caso de qualquer divergência, alteração ou dúvida,
+      prevalece a receita e a orientação do médico responsável.
+
+    </div>
+
+
+    <!-- WHATSAPP -->
+
+    <section class="whatsapp-area">
+
+      <h3>
+        Quer confirmar seu orçamento?
+      </h3>
+
+      <p>
+        Clique abaixo e fale diretamente com a NR Drogarias.
+      </p>
+
+
+      <a
+        class="btn-whatsapp"
+
+        href="https://wa.me/5521974377551?text=Ol%C3%A1%2C%20vim%20do%20site%20do%20Dr.%20Felipe%20Magno%20-%20Somente%20Mama.%20Gostaria%20de%20confirmar%20meu%20or%C3%A7amento."
+
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        Falar com a NR Drogarias pelo WhatsApp
+
+      </a>
+
+    </section>
+
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <div class="container">
+
+    <strong>
+      NR Drogarias
+    </strong>
+
+    Atendimento especial aos pacientes do Dr. Felipe Magno.
+
+    <br>
+
+    Valores sujeitos à disponibilidade de estoque.
+
+    <br><br>
+
+    Esta página possui finalidade comercial e informativa
+    e não substitui a prescrição ou orientação médica.
+
+  </div>
+
+</footer>
+
+
+</body>
+</html>
